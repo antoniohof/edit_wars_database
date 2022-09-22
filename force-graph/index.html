@@ -45,7 +45,7 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const narrative = urlParams.get('narrative') ? urlParams.get('narrative') : 'mythical_nazis'
-
+    
     const Graph = ForceGraph3D()
       (document.getElementById('3d-graph'))
         .jsonUrl(`../export/narratives_word_graphs/${narrative}.json`)
@@ -68,6 +68,7 @@
           sprite.textHeight = 2 + Math.min(20, parseInt(node.value));
           return sprite;
         });
+    console.log(Graph);
 
     // Spread nodes a little wider
     Graph.d3Force('charge').strength(-300);
